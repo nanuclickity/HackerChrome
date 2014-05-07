@@ -1,0 +1,130 @@
+.app-header
+	@extend .layer
+	right 0px
+	height header_height
+	z-index 1000
+	overflow initial
+
+// Header Inner
+.app-header
+	.header-inner
+		clearfix()
+		margin 0
+		padding 0
+		width 100%
+		height header_height
+		border-bottom 1px theme_border solid
+		background-color header_background_color
+		transition all .3s ease
+		-webkit-app-region drag
+	.header-inner.scroll-shadow
+		border-bottom-color header_background_color
+		if dark(theme_base)
+			box-shadow 0px 5px 25px 5px header_background_color
+		else
+			box-shadow 0px 5px 25px 5px header_background_color
+
+
+.app-header
+	.btn-group-header
+		-webkit-app-region no-drag
+		margin 8px 15px 0 15px
+		> .btn
+			padding 3px 6px
+			height 32px
+
+.app-header
+	.header-nav
+		display block
+		float left
+		height header_height
+		-webkit-app-region no-drag
+		clearfix()
+		.navigate-backward, .navigate-forward
+			height header_height
+			width 36px
+			cursor pointer
+			box-sizing border-box
+			color theme_widget_font
+			font-size 28px
+			display block
+			padding 2px 0
+			float left
+			position relative
+			transition all .15s ease-in-out
+			&:hover, &:active
+				color color_base
+		.navigate-forward
+			&:active
+				right -2px
+		.navigate-backward
+			&:active
+				left -2px
+
+
+// Header Logo
+.app-header
+	.header-logo
+		-webkit-app-region no-drag
+		display block
+		float left
+		margin 15px 0 0 15px
+		user-select none
+		clearfix()
+		.logo-icon, .logo-name
+			display block
+			float left
+			font-size 28px
+			font-family baseFontLight
+
+		.logo-icon
+			width 48px
+			height 48px
+			border-radius 2px
+			text-align center
+			color rgba(#fff, 0.7)
+			padding 8px 8px 8px 6px
+			cursor pointer
+			background-color color_base
+			transition all .2s ease-in-out
+
+			&:hover, &:active
+				color #fff
+				theme-text-shadow()
+				theme-box-shadow()
+				.hover-bars
+					&:before
+						content "\f0c9"
+			&:active
+				box-shadow inset 0px 4px 10px 0 rgba(#000,0.15)
+
+		.logo-name
+			margin-left 10px
+
+			.view-name
+				display block
+				color color_base
+				line-height 24px
+				margin-top 5px
+				text-transform uppercase
+
+// Header Settings
+.app-header
+	.header-settings
+		-webkit-app-region no-drag
+		display block
+		float right
+		width 100px
+		height 48px
+
+.app-header
+	.header-title
+		position absolute
+		left 200px
+		right 100px
+		color color_base
+		font-family baseFontLight
+		text-transform uppercase
+		text-align center
+		font-size 24px
+		margin 6px 0 0 0

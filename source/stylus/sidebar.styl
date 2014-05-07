@@ -1,0 +1,52 @@
+.app-sidebar
+  absolute top 48px left bottom
+  width 300px
+  z-index 400
+  overflow-x hidden
+  overflow-y scroll
+  border-right 1px theme_border solid
+  transition all .2s ease-in-out
+  &:hover
+    left 0px
+
+
+.app-sidebar[data-visibility='hidden']
+  left -300px
+  & + .app-content
+    left 0px
+.app-sidebar[data-visibility='visible']
+  left 0px
+  & + .app-content
+    left 300px
+
+
+
+ul.sidebar-list
+  list-style none
+  padding 0
+  margin 0
+  .sidebar-item
+    display block
+    color theme_widget_font
+    padding 10px
+    .n-title
+      color color_base
+      font-size 20px
+      white-space nowrap
+      overflow hidden
+      text-overflow ellipsis
+      display block
+      font-family baseFontLight
+    .n-points, .n-comments
+      display inline-block
+      text-transform uppercase
+
+
+    &:hover
+      background-color rgba(#000, 0.05)
+    &:last-child
+      border-bottom none
+.app-sidebar
+  ul.sidebar-list::-webkit-scrollbar-track
+    opacity 0
+    background-color rgba(#000, 0)

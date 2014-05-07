@@ -1,0 +1,178 @@
+body
+	color theme_font
+	font-family baseFont
+	font-weight normal
+
+
+h1,h2,h3,h4,h5,h6
+	color color_base
+
+h1,h2,h3
+	font-weight normal
+h1
+	font-family baseFontThin
+h2
+	font-family baseFontLight
+h3, h4
+	font-family baseFont
+h5, h6
+	font-family baseFontSemibold
+
+// Form control Overrides
+.form-control
+	border-radius 0
+	box-shadow none
+	&:hover, &:active, &:focus
+		box-shadow none
+
+
+// Button Overrides
+.btn, .btn.btn-default
+	border-radius 0
+
+
+
+.list-vertical
+	li
+		display block
+		margin-bottom 20px
+.list-padded
+	li
+		padding 0 15px 15px 0
+
+
+.page-header
+	border-color theme_border
+.page-header.alt
+	h1
+		display block
+		text-align center
+		small
+			display block
+			margin-top 20px
+			font-size 50%
+
+
+// Overriding the default row
+.row.row-full-width, .row.row-full
+	margin-left 0
+	margin-right 0
+
+.row.row-padded
+	margin-left 15px
+	margin-right 15px
+.row + .row
+	margin-top 40px
+
+
+
+// Negate top margin and padding
+.no-box-top
+	margin-top 0
+	padding-top 0
+
+
+// Text case helpers
+.text-uppercase
+	text-transform uppercase
+.text-lowercase
+	text-transform lowercase
+
+
+/* CODE STYLES
+ * These work on code and pre tags
+ * mostly used to wrap a command or
+ * a piece of code
+ */
+
+code
+	font-family baseFontSemibold
+	font-size 12px
+	margin-left 3px
+	margin-right 3px
+	padding 4px 8px 4px 8px
+	border-radius 2px
+	border 1px theme_border solid
+	background-color darken(theme_base, 8%)
+	color color_base
+pre
+	border 1px theme_border solid
+	border-radius 1px
+
+
+hr
+	border-top-color theme_border
+
+/* TABLES
+ * Table styles are tweaked to adapt to base themes
+ * and color schemes
+ */
+table.table tbody > tr > td
+	border-top-color theme_border
+table.table.table-hover > tbody > tr:hover > td
+	background-color theme_widget
+
+
+/* INPUT STYLES
+ * The default inputs are re-styled.
+*/
+input
+	display inline-block
+	&:active, &:focus, &:active:focus
+		outline none
+
+input[type='text'], input[type='password']
+	border 1px theme_border solid
+	padding 6px 12px
+	border-radius 1px
+	transition all .3s ease-in-out
+	background none
+	background-color theme_base
+	border-color theme_border
+	&:hover
+		border-color color_base
+	&:active, &:focus
+		border-color color_base
+
+input[type='checkbox']
+	appearance(none)
+	border 1px theme_border solid
+	width 16px
+	height 16px
+	background-color theme_widget
+	position relative
+	transition all .2s ease
+	&:after
+		absolute top left 1px
+		font-family 'Glyphicons Halflings'
+		content ''
+		color theme_widget_font
+		font-size 75%
+	&:checked
+		&:after
+			content "\e013"
+	&:hover, &:active
+		outline none
+		border-color color_base
+		theme-inset-box-shadow()
+	&:focus
+		outline none
+
+input[type='color']
+	width 48px
+	height 48px
+	padding 3px 5px
+	border-radius 1px
+	border 1px theme_border solid
+	transition all .2s ease
+	&:hover, &:active
+		border-color color_base
+	&:active
+		color-shadow-top()
+
+
+
+
+
+.hover-pointer
+	cursor pointer

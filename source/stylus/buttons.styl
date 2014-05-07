@@ -1,0 +1,99 @@
+
+.btn
+	border-radius 2px
+	font-family baseFontSemibold
+	color #fff
+	font-size 14px
+	padding 8px 14px 6px 14px
+	transition all .2s ease
+	&:hover, &:focus, &:active
+		outline none
+
+.btn:active, .btn.active
+		border-color rgba(#000, 0.25)
+		box-shadow inset 0px 4px 8px 0 rgba(#000, 0.25)
+
+
+
+.btn.btn-default
+	background-color theme_base
+	font-family baseFontSemibold
+	border-radius 2px
+	border 1px theme_border solid
+	color theme_widget_font
+	&:hover, &:active
+		theme-box-shadow()
+		color darken(theme_widget_font, 18%)
+		border-color darken(theme_border, 10%)
+		if dark(theme_base)
+			color #fff
+	&:active
+		background-color darken(theme_widget, 4%)
+		box-shadow inset 0 3px 8px 0 rgba(#000, 0.1)
+		outline none
+
+.btn.active
+	position relative
+	theme-inset-box-shadow()
+	&:after
+		absolute top left bottom right
+		content ''
+		background-color rgba(#000, 0.15)
+
+
+.btn.btn-base
+	background-color color_base
+	border-radius 2px
+	font-family baseFontSemibold
+	border 1px darken(color_base, 10%) solid
+	color #f8f8f8
+	&:hover, &:active
+		theme-box-shadow()
+		color #fff
+		outline none
+		background-color lighten(color_base, 10%)
+	&:active
+		border-color darken(color_base, 10%)
+		background-color darken(color_base, 10%)
+		box-shadow inset 0px 3px 8px 0 rgba(#000, 0.1)
+
+
+
+// Add color variation
+for _color in colors_status
+	.btn.btn-{_color[0]}
+		border-color _color[1]
+		background-color _color[1]
+		&:hover, &:active
+			background-color lighten(_color[1], 18%)
+			theme-box-shadow()
+			outline none
+		&:active
+			border-color darken(_color[1], 10%)
+			background-color darken(_color[1], 10%)
+			box-shadow inset 0px 3px 8px 0px rgba(#000, 0.1)
+for _color in colors_array
+	.btn.btn-{_color[0]}
+		border-color _color[1]
+		background-color _color[1]
+		color rgba(#fff, 0.8)
+		&:hover, &:active
+			color #fff
+			outline none
+			background-color lighten(_color[1], 18%)
+			border-color _color[1]
+			theme-box-shadow()
+		&:active
+			border-color darken(_color[1], 10%)
+			background-color darken(_color[1], 10%)
+			box-shadow inset 0px 3px 8px 0px rgba(#000, 0.1)
+
+
+
+.btn-group + .btn-group
+	margin-left 15px
+
+.input-group
+	.input-group-btn + input
+			height 36px
+			border-left none

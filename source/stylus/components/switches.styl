@@ -1,0 +1,68 @@
+.switch
+  height 22px
+  clearfix()
+  position relative
+  overflow hidden
+  z-index 210
+  width 80px
+  border 1px theme_border solid
+  input[type='checkbox']
+    opacity 0
+    absolute top 0 left 0
+    z-index 205
+    width 100%
+    height 100%
+    margin-top 0
+  .switch-inner
+    width 100%
+    height 100%
+    position absolute
+    .switch-box
+      width 50%
+      height 100%
+      position absolute
+      top 0
+      right 50%
+      z-index 204
+      text-align center
+      padding-top 3px
+      transition all .3s ease
+      background-color theme_widget
+      theme-box-shadow()
+
+    .switch-off, .switch-on
+      &:after
+        position absolute
+        top 0
+        height 100%
+        width 50%
+        text-align center
+        font-family baseFontSemibold
+        z-index 98
+        line-height 25px
+
+
+    .switch-off
+      &:after
+        background-color darken(theme_widget ,5%)
+        content "OFF"
+        right 0
+
+
+    .switch-on
+      color #FFF
+      &:after
+        background-color color_base
+        content "ON"
+        left 0
+
+
+
+  input[type='checkbox']:checked + .switch-inner
+    .switch-box
+      right 0
+
+
+  input[type='checkbox']:disabled + .switch-inner
+    opacity 0.5
+

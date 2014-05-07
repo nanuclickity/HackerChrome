@@ -1,0 +1,24 @@
+::-webkit-scrollbar
+	width 6px
+	height 6px
+
+::-webkit-scrollbar-track
+	border-left 1px transparent solid
+	opacity 0.3
+	transition opacity .2s ease-in-out
+	&:hover
+		opacity 1
+
+::-webkit-scrollbar-thumb
+	background-color rgba(color_base, 0.6)
+	transition background .2s ease-in-out
+	cursor pointer
+	&:hover
+		background-color rgba(color_base, 1)
+
+
+.app-menu
+	*::-webkit-scrollbar-thumb
+		background-color rgba(#000, 0.1)
+		&:hover
+			background-color rgba(#000, 0.3)

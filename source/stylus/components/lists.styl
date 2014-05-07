@@ -1,0 +1,128 @@
+
+ul.list-icons
+	FlexBox-Rows()
+	FlexBox-Justify('space-around')
+	list-style none
+	margin 0
+	padding 0
+	> li
+		cursor pointer
+		margin 0 auto 0 auto
+		color theme_font
+		border 1px theme_border solid
+		min-width 120px
+		border-radius 2px
+		margin-right 15px
+		margin-bottom 15px
+		.icon-box
+			font-size 28px
+			padding 15px 25px
+		.icon-desc
+			padding 5px 10px
+			background-color theme_base
+		.icon-desc, .icon-box
+			text-align center
+			color theme_font
+			transition all .3s ease-in-out
+		&:hover
+			border-color color_base
+			.icon-box
+				color #fff
+				theme-text-shadow()
+				background-color color_base
+
+		&:hover
+			color color_base
+
+
+
+
+ul.list-flexbox
+	FlexBox-Rows()
+	list-style none
+	margin 0
+	padding 0
+	> li
+		margin-bottom 8px
+
+
+
+ul.list-horizontal
+	list-style none
+	margin 0
+	padding 0
+	> li
+		display inline-block
+		margin-right 10px
+		margin-bottom 10px
+	.btn-group + .btn-group
+		margin-left 0
+
+
+ul.list-vertical
+	list-style none
+	margin 0
+	padding 0
+	> li
+		margin-bottom 10px
+		display block
+
+
+ul.list-bordered
+	list-style none
+	margin 0
+	padding 0
+	> li
+		padding-top 4px
+		padding-bottom 4px
+		display block
+		border-top 1px theme_border solid
+		&:last-child
+			border-bottom 1px theme_border solid
+
+ul.list-bordered.fa-ul
+	> li
+		padding-left 15px
+		> i.fa-li
+			left -10px
+			top 5px
+
+
+
+
+
+// Todo List
+ul.list-todo
+	display block
+	padding 0
+	margin 0
+	> li
+		display block
+		padding 10px 15px 10px 35px
+		position relative
+		font-size 16px
+		border-bottom 1px theme_border solid
+		&:after
+			absolute top 10px left 10px
+			content "\f10c"
+			font-family 'FontAwesome'
+			font-size 16px
+			color theme_widget_font
+		&:hover, &:active
+			if dark(theme_base)
+				background-color rgba(#000, 0.15)
+			else
+				background-color rgba(#000, 0.04)
+			&:after
+				color color_base
+				content '\f058'
+
+		&:active
+			theme-inset-box-shadow()
+		&:last-child
+			border-bottom none
+
+// Inside a box widget todo list will expand to full width till borders.
+.box-body
+	.list-todo
+		margin -15px

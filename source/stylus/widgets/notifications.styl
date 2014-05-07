@@ -1,0 +1,203 @@
+StripeBackground(basecolor)
+	background-image linear-gradient(45deg, basecolor 25%, transparent 25%, transparent 50%, basecolor 50%, basecolor 75%, transparent 75%, transparent 100%)
+
+
+
+.notification
+	position absolute
+	display block
+	z-index 2000
+	cursor pointer
+	font-family baseFont
+	background-color theme_widget
+	padding 8px 10px 8px 35px
+	box-shadow 0px 3px 10px 0px rgba(#000, 0.1)
+	transition all .3s ease-out
+
+// Inside Stuff
+.notification
+	.notification-title
+		font-family baseFont
+		font-size 18px
+	.notification-message
+		font-family baseFont
+		font-size 16px
+
+// Background
+.notification
+	.nf-background
+		absolute top left right bottom
+		background none
+		background-size 40px 40px
+
+
+
+
+
+/* Notification Types
+ * Available -
+ *   1. Basic
+ * 	 2. Flat
+ *   3. Glossy
+ *   4. Dark
+ */
+
+ // Basic
+.nf-type-basic
+	color theme_widget_font
+	border-radius 2px
+	opacity 0.9
+	border 1px theme_border solid
+	transition opacity .2s ease
+	&:before
+		absolute bottom left right
+		height 90%
+		content ''
+		background linear-gradient(top, transparent, rgba(#000, 0.04))
+		transition height .2s ease
+	&:after
+		absolute top 11px left 10px
+		content ''
+		border-radius 50%
+		width 12px
+		height 12px
+		box-shadow inset 0px 4px 10px 0px rgba(#000, 0.15)
+	&:hover
+		opacity 1
+		&:before
+			height 40%
+
+// Color Variations
+.nf-type-basic.nf-color-base
+	border-color color_base
+	&:after
+		background-color color_base
+for _color in colors_array
+	.nf-type-basic.nf-color-{_color[0]}
+		border-color _color[1]
+		&:after
+			background-color _color[1]
+
+
+
+
+
+
+
+// Flat Notifications
+.nf-type-flat
+	opacity 0.9
+	transition opacity .2s ease
+	border-radius 1px
+	color lighten(theme_widget_font, 20%)
+	border 1px color_base solid
+	&:after
+		absolute top 11px left 10px
+		content ''
+		border-radius 50%
+		width 12px
+		height 12px
+	&:hover
+		opacity 1
+
+.nf-type-flat.nf-color-base
+	color #fff
+	border-color color_base
+	background-color color_base
+	&:after
+		background-color #fff
+// Color Variation
+for _color in colors_array
+	.nf-type-flat.nf-color-{_color[0]}
+		color #fff
+		border-color _color[1]
+		background-color _color[1]
+		&:after
+			background-color #fff
+
+
+
+
+
+
+
+
+// Dark Notifications
+.nf-type-dark
+	@extend .nf-type-flat
+	border-radius 2px
+	background-color rgba(#000, 0.8)
+	border-color rgba(#000, 0.9)
+	opacity 0.85
+	color #fff
+	&:hover
+		opacity 1
+.nf-type-dark.nf-color-base
+	&:after
+		background-color color_base
+
+for _color in colors_array
+	.nf-type-dark.nf-color-{_color[0]}
+		&:after
+			background-color _color[1]
+
+
+
+
+
+
+// Position
+.nf-pos-top-right
+	top 70px
+	right 15px
+.nf-pos-top-left
+	top 70px
+	left 15px
+.nf-pos-bottom-right
+	bottom 30px
+	right 15px
+.nf-pos-bottom-left
+	bottom 30px
+	left 15px
+.nf-pos-top
+	top 10px
+	left 30%
+	right 30%
+	bottom initial
+	text-align center
+.nf-pos-bottom
+	top initial
+	bottom 30px
+	left 30%
+	right 30%
+	text-align center
+
+
+// Animated
+.nf-animated
+	.nf-background
+		background none
+		background-size 40px 40px
+		width 0%
+		StripeBackground(rgba(color_base, 0.3))
+		animation nf-anim-progress 5s linear once
+
+@-webkit-keyframes nf-anim-progress
+	0%{
+		width 0%
+	}
+	100%{
+		width 100%
+	}
+
+
+
+// Responsive Behaviour
+@media (max-width: 767px)
+	.nf-pos-top
+		left 10%
+		right 10%
+		top 50px
+	.nf-pos-bottom
+		left 10%
+		right 10%

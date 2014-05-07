@@ -1,0 +1,20 @@
+{
+  "name": "ModularUI",
+  "version": "0.0.1",
+  "description": "Modular Framework for developing HTML5 Apps",
+  "main": "Cakefile",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tushar Kant",
+  "license": "MIT",
+  "dependencies": {
+    "clientjade": "*",
+    "coffee-script": "*",
+    "express": "^4.1.1",
+    "jade": "*",
+    "nib": "*",
+    "stylus": "*",
+    "underscore": "*"
+  }
+}
